@@ -30,10 +30,10 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 PRODUCT_COPY_FILES += \
-    device/samsung/fascinate/apns-conf.xml:system/etc/apns-conf.xml
+    device/samsung/mesmerize/apns-conf.xml:system/etc/apns-conf.xml
 
 ## (2) Also get non-open-source GSM-specific aspects if available
-$(call inherit-product-if-exists, vendor/samsung/fascinate/fascinate-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/mesmerize/mesmerize-vendor.mk)
 
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -46,27 +46,27 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #verizon cdma stuff
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.com.google.clientidbase=android-verizon \
-	ro.com.google.clientidbase.yt=android-verizon \
-	ro.com.google.clientidbase.am=android-verizon \
-	ro.com.google.clientidbase.vs=android-verizon \
-	ro.com.google.clientidbase.gmm=android-verizon \
-	ro.cdma.home.operator.numeric=310004 \
-	ro.cdma.home.operator.alpha=Verizon \
+	ro.com.google.clientidbase=android-samsung \
+	ro.com.google.clientidbase.yt=android-samsung \
+	ro.com.google.clientidbase.am=android-samsung \
+	ro.com.google.clientidbase.vs=android-samsung \
+	ro.com.google.clientidbase.gmm=android-samsung \
+	ro.cdma.home.operator.numeric=310730 \
+	ro.cdma.home.operator.alpha=USCellular \
   	net.cdma.pppd.authtype=require-chap \
-	net.cdma.pppd.user=user[SPACE]VerizonWireless \
+	net.cdma.pppd.user=user[SPACE]USCellular \
 	net.cdma.datalinkinterface=/dev/ttyCDMA0 \
 	net.interfaces.defaultroute=cdma \
 	net.cdma.ppp.interface=ppp0 \
 	net.connectivity.type=CDMA1 \
-	gsm.operator.alpha=VzW \
-	gsm.operator.numeric=310012 \
+	gsm.operator.alpha=USCC \
+	gsm.operator.numeric=310730 \
 	gsm.operator.iso-country=us \
 	gsm.operator.isroaming=false \
 	gsm.current.phone-type=2 \
-	ro.csc.sales_code=VZW \
-	ril.sales_code=VZW \
-	ro.carrier=Verizon \
+	ro.csc.sales_code=USCC \
+	ril.sales_code=USCC \
+	ro.carrier=U.S.[SPACE]Cellular \
 	net.dns1=8.8.8.8 \
 	net.dns2=8.8.4.4 \
 	mobiledata.interfaces=eth0,ppp0
@@ -84,21 +84,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Fascinate uses high-density artwork where available
 PRODUCT_LOCALES := hdpi
 
-DEVICE_PACKAGE_OVERLAYS += device/samsung/fascinate/overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/mesmerize/overlay
 
 # media profiles and capabilities spec
-$(call inherit-product, device/samsung/fascinate/media_a1026.mk)
+$(call inherit-product, device/samsung/mesmerize/media_a1026.mk)
 # media config xml file
 PRODUCT_COPY_FILES += \
-    device/samsung/fascinate/media_profiles.xml:system/etc/media_profiles.xml
+    device/samsung/mesmerize/media_profiles.xml:system/etc/media_profiles.xml
 
 # asound.conf
 PRODUCT_COPY_FILES += \
-    device/samsung/fascinate/prebuilt/asound.conf:system/etc/asound.conf
+    device/samsung/mesmerize/prebuilt/asound.conf:system/etc/asound.conf
 
 # vold
 PRODUCT_COPY_FILES += \
-    device/samsung/fascinate/prebuilt/vold.fstab:system/etc/vold.fstab
+    device/samsung/mesmerize/prebuilt/vold.fstab:system/etc/vold.fstab
 
 # Install the features available on this device.
 PRODUCT_COPY_FILES += \
@@ -116,46 +116,46 @@ PRODUCT_COPY_FILES += \
 
 # Keylayout / Keychars
 PRODUCT_COPY_FILES += \
-     device/samsung/fascinate/prebuilt/keylayout/s3c-keypad.kl:system/usr/keylayout/s3c-keypad.kl \
-     device/samsung/fascinate/prebuilt/keylayout/sec_jack.kl:system/usr/keylayout/sec_jack.kl \
-     device/samsung/fascinate/prebuilt/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-     device/samsung/fascinate/prebuilt/keylayout/melfas-touchkey.kl:system/usr/keylayout/melfas-touchkey.kl \
-     device/samsung/fascinate/prebuilt/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
-     device/samsung/fascinate/prebuilt/keychars/s3c-keypad.kcm.bin:system/usr/keychars/s3c-keypad.kcm.bin \
-     device/samsung/fascinate/prebuilt/keychars/sec_jack.kcm.bin:system/usr/keychars/sec_jack.kcm.bin \
-     device/samsung/fascinate/prebuilt/keychars/melfas-touchkey.kcm.bin:system/usr/keychars/melfas-touchkey.kcm.bin \
-     device/samsung/fascinate/prebuilt/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
-     device/samsung/fascinate/prebuilt/keychars/s3c-keypad-rev0050.kcm.bin:system/usr/keychars/s3c-keypad-rev0050.kcm.bin \
-     device/samsung/fascinate/prebuilt/keychars/s3c-keypad-rev0040.kcm.bin:system/usr/keychars/s3c-keypad-rev0040.kcm.bin \
-     device/samsung/fascinate/prebuilt/keychars/s3c-keypad-rev0030.kcm.bin:system/usr/keychars/s3c-keypad-rev0030.kcm.bin \
-     device/samsung/fascinate/prebuilt/keychars/s3c-keypad-rev0000.kcm.bin:system/usr/keychars/s3c-keypad-rev0000.kcm.bin \
-     device/samsung/fascinate/prebuilt/keychars/melfas_ts_input.kcm.bin:system/usr/keychars/melfas_ts_input.kcm.bin \
-     device/samsung/fascinate/prebuilt/keychars/optjoy_device.kcm.bin:system/usr/keychars/optjoy_device.kcm.bin \
-     device/samsung/fascinate/prebuilt/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin  
+     device/samsung/mesmerize/prebuilt/keylayout/s3c-keypad.kl:system/usr/keylayout/s3c-keypad.kl \
+     device/samsung/mesmerize/prebuilt/keylayout/sec_jack.kl:system/usr/keylayout/sec_jack.kl \
+     device/samsung/mesmerize/prebuilt/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
+     device/samsung/mesmerize/prebuilt/keylayout/melfas-touchkey.kl:system/usr/keylayout/melfas-touchkey.kl \
+     device/samsung/mesmerize/prebuilt/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
+     device/samsung/mesmerize/prebuilt/keychars/s3c-keypad.kcm.bin:system/usr/keychars/s3c-keypad.kcm.bin \
+     device/samsung/mesmerize/prebuilt/keychars/sec_jack.kcm.bin:system/usr/keychars/sec_jack.kcm.bin \
+     device/samsung/mesmerize/prebuilt/keychars/melfas-touchkey.kcm.bin:system/usr/keychars/melfas-touchkey.kcm.bin \
+     device/samsung/mesmerize/prebuilt/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
+     device/samsung/mesmerize/prebuilt/keychars/s3c-keypad-rev0050.kcm.bin:system/usr/keychars/s3c-keypad-rev0050.kcm.bin \
+     device/samsung/mesmerize/prebuilt/keychars/s3c-keypad-rev0040.kcm.bin:system/usr/keychars/s3c-keypad-rev0040.kcm.bin \
+     device/samsung/mesmerize/prebuilt/keychars/s3c-keypad-rev0030.kcm.bin:system/usr/keychars/s3c-keypad-rev0030.kcm.bin \
+     device/samsung/mesmerize/prebuilt/keychars/s3c-keypad-rev0000.kcm.bin:system/usr/keychars/s3c-keypad-rev0000.kcm.bin \
+     device/samsung/mesmerize/prebuilt/keychars/melfas_ts_input.kcm.bin:system/usr/keychars/melfas_ts_input.kcm.bin \
+     device/samsung/mesmerize/prebuilt/keychars/optjoy_device.kcm.bin:system/usr/keychars/optjoy_device.kcm.bin \
+     device/samsung/mesmerize/prebuilt/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin  
 
 # Dict stuff
 PRODUCT_COPY_FILES += \
-     device/samsung/fascinate/prebuilt/config/en.us/baseline.par:system/usr/config/en.us/baseline.par \
-     device/samsung/fascinate/prebuilt/config/en.us/baseline8k.par:system/usr/config/en.us/baseline8k.par \
-     device/samsung/fascinate/prebuilt/config/en.us/baseline11k.par:system/usr/config/en.us/baseline11k.par \
-     device/samsung/fascinate/prebuilt/config/en.us/dictionary/basic.ok:system/usr/config/en.us/dictionary/basic.ok \
-     device/samsung/fascinate/prebuilt/config/en.us/dictionary/cmu6plus.ok.zip:system/usr/config/en.us/dictionary/cmu6plus.ok.zip \
-     device/samsung/fascinate/prebuilt/config/en.us/dictionary/enroll.ok:system/usr/config/en.us/dictionary/enroll.ok \
-     device/samsung/fascinate/prebuilt/config/en.us/g2p/en-US-ttp.data:system/usr/config/en.us/g2p/en-US-ttp.data \
-     device/samsung/fascinate/prebuilt/config/en.us/grammars/boolean.g2g:system/usr/config/en.us/grammars/boolean.g2g \
-     device/samsung/fascinate/prebuilt/config/en.us/grammars/phone_type_choice.g2g:system/usr/config/en.us/grammars/phone_type_choice.g2g \
-     device/samsung/fascinate/prebuilt/config/en.us/grammars/VoiceDialer.g2g:system/usr/config/en.us/grammars/VoiceDialer.g2g \
-     device/samsung/fascinate/prebuilt/config/en.us/models/generic.swiarb:system/usr/config/en.us/models/generic.swiarb \
-     device/samsung/fascinate/prebuilt/config/en.us/models/generic8.lda:system/usr/config/en.us/models/generic8.lda \
-     device/samsung/fascinate/prebuilt/config/en.us/models/generic8_f.swimdl:system/usr/config/en.us/models/generic8_f.swimdl \
-     device/samsung/fascinate/prebuilt/config/en.us/models/generic8_m.swimdl:system/usr/config/en.us/models/generic8_m.swimdl \
-     device/samsung/fascinate/prebuilt/config/en.us/models/generic11.lda:system/usr/config/en.us/models/generic11.lda \
-     device/samsung/fascinate/prebuilt/config/en.us/models/generic11_f.swimdl:system/usr/config/en.us/models/generic11_f.swimdl \
-     device/samsung/fascinate/prebuilt/config/en.us/models/generic11_m.swimdl:system/usr/config/en.us/models/generic11_m.swimdl
+     device/samsung/mesmerize/prebuilt/config/en.us/baseline.par:system/usr/config/en.us/baseline.par \
+     device/samsung/mesmerize/prebuilt/config/en.us/baseline8k.par:system/usr/config/en.us/baseline8k.par \
+     device/samsung/mesmerize/prebuilt/config/en.us/baseline11k.par:system/usr/config/en.us/baseline11k.par \
+     device/samsung/mesmerize/prebuilt/config/en.us/dictionary/basic.ok:system/usr/config/en.us/dictionary/basic.ok \
+     device/samsung/mesmerize/prebuilt/config/en.us/dictionary/cmu6plus.ok.zip:system/usr/config/en.us/dictionary/cmu6plus.ok.zip \
+     device/samsung/mesmerize/prebuilt/config/en.us/dictionary/enroll.ok:system/usr/config/en.us/dictionary/enroll.ok \
+     device/samsung/mesmerize/prebuilt/config/en.us/g2p/en-US-ttp.data:system/usr/config/en.us/g2p/en-US-ttp.data \
+     device/samsung/mesmerize/prebuilt/config/en.us/grammars/boolean.g2g:system/usr/config/en.us/grammars/boolean.g2g \
+     device/samsung/mesmerize/prebuilt/config/en.us/grammars/phone_type_choice.g2g:system/usr/config/en.us/grammars/phone_type_choice.g2g \
+     device/samsung/mesmerize/prebuilt/config/en.us/grammars/VoiceDialer.g2g:system/usr/config/en.us/grammars/VoiceDialer.g2g \
+     device/samsung/mesmerize/prebuilt/config/en.us/models/generic.swiarb:system/usr/config/en.us/models/generic.swiarb \
+     device/samsung/mesmerize/prebuilt/config/en.us/models/generic8.lda:system/usr/config/en.us/models/generic8.lda \
+     device/samsung/mesmerize/prebuilt/config/en.us/models/generic8_f.swimdl:system/usr/config/en.us/models/generic8_f.swimdl \
+     device/samsung/mesmerize/prebuilt/config/en.us/models/generic8_m.swimdl:system/usr/config/en.us/models/generic8_m.swimdl \
+     device/samsung/mesmerize/prebuilt/config/en.us/models/generic11.lda:system/usr/config/en.us/models/generic11.lda \
+     device/samsung/mesmerize/prebuilt/config/en.us/models/generic11_f.swimdl:system/usr/config/en.us/models/generic11_f.swimdl \
+     device/samsung/mesmerize/prebuilt/config/en.us/models/generic11_m.swimdl:system/usr/config/en.us/models/generic11_m.swimdl
 
 # Kernel
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/samsung/fascinate/kernel
+LOCAL_KERNEL := device/samsung/mesmerize/kernel
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -165,9 +165,9 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product, build/target/product/full.mk)
 
-PRODUCT_NAME := full_fascinate
-PRODUCT_DEVICE := fascinate
-PRODUCT_MODEL := Fascinate
+PRODUCT_NAME := full_mesmerize
+PRODUCT_DEVICE := mesmerize
+PRODUCT_MODEL := Mesmerize
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := Samsung
 PRODUCT_POLICY := android.policy_phone

@@ -29,7 +29,7 @@ BOARD_USES_FROYO := true
 BOARD_USES_OVERLAY := true
 
 # inherit from the proprietary version
--include vendor/samsung/fascinate/BoardConfigVendor.mk
+-include vendor/samsung/mesmerize/BoardConfigVendor.mk
 
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := SCH-I500
@@ -66,11 +66,11 @@ BRCM_BTL_INCLUDE_A2DP := true
 BRCM_BT_USE_BTL_IF := true
 WITH_A2DP := true
 
-BOARD_EGL_CFG := device/samsung/fascinate/prebuilt/egl.cfg
+BOARD_EGL_CFG := device/samsung/mesmerize/prebuilt/egl.cfg
 
 # Device related defines
 
-TARGET_PREBUILT_KERNEL := device/samsung/fascinate/kernel
+TARGET_PREBUILT_KERNEL := device/samsung/mesmerize/kernel
 BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null
 BOARD_KERNEL_BASE := 0x02e00000
 

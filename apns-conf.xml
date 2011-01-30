@@ -26,10 +26,23 @@
 <!-- SecFeature.SPRINT_CDMA  -->
 <!-- mms_eclair   -->
 <apns version="6">
-   <apn carrier="Verizon"
+<!-- // USCC_I500 SOULMOON 20100618 [ BND 2010.01.12 apply uscc mmsc url -->
+   <apn carrier="USCC"
+        mcc="310"
+	    mnc="00"
+	    apn="USCC"
+        user="USCC"
+        server="*"
+        password="*"
+        mmsc="http://mmsc1.uscc.net/mmsc/MMS"
+        auth="3"
+     />
+<!-- BND 2010.01.12 apply uscc mmsc url ] -->
+<!--
+   <apn carrier="Sprint"
         mcc="310"
         mnc="012"
-        apn="Verizon"
+        apn="Sprint"
         user="MDN@vzw3g.com "
         server="*"
         password="vzw"
@@ -46,7 +59,8 @@
         user_domestic="sktelecom"
         auth_type="0"
         mms_lockcode="500667"
-    />
+	/>
+-->
 </apns>
 <!-- CSJ APN Settings
 <apns version="6">
