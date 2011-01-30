@@ -1,2 +1,2 @@
-add_lunch_combo full_fascinate-userdebug
-add_lunch_combo full_fascinate-eng
+add_lunch_combo full_mesmerize-userdebug
+add_lunch_combo full_mesmerize-eng
